@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     --orange: #fe832c;
     --green: #04d361;
   }
-  
+
   * {
     margin: 0;
     padding: 0;
@@ -51,5 +51,5 @@ export const GlobalStyle = createGlobalStyle`
     opacity: 0.6;
     cursor: not-allowed;
   }
- 
+
 `;

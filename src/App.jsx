@@ -1,3 +1,4 @@
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { AuthProvider } from './contexts/AuthContext';
@@ -8,7 +9,7 @@ import SignUpPage from './pages/Signup';
 
 function App() {
   return (
-    
+
     <AuthProvider>
       <Routes>
         <Route element={<ProtectedRoute />}>
@@ -17,8 +18,8 @@ function App() {
         <Route path="signup" element={<SignUpPage />} />
         <Route path="login" element={<LoginPage />} />
       </Routes>
-      
-      <GlobalStyle/>
+
+      <GlobalStyle />
     </AuthProvider>
   );
 }

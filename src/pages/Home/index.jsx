@@ -1,9 +1,11 @@
+import React from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { Box, Container, CustomButton, Title } from './styles';
+import {
+  Box, Container, CustomButton, Title,
+} from './styles';
 
-export default function HomePage () {
-
-  const {logout } = useAuth();  
+export default function HomePage() {
+  const { logout } = useAuth();
   return (
     <Container>
       <Box>

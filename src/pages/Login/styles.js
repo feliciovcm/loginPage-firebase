@@ -19,7 +19,7 @@ export const LoginBox = styled.div`
 export const Title = styled.p`
   text-align: center;
   margin-bottom: 3rem;
-  
+
   font-size: 2rem;
   font-weight: 700;
   color: var(--text);
@@ -75,7 +75,7 @@ export const LoginError = styled.div`
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
-  
+
   padding: 1rem 0;
   border: none;
   border-radius: 0.5rem;

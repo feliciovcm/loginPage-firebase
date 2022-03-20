@@ -1,16 +1,18 @@
+import React, { useState } from 'react';
 import { Formik } from 'formik';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Input } from '../../components/Form/Input/Input';
 import { loginValidationSchema } from '../../components/Form/schemas/loginValidationSchema';
 import { useAuth } from '../../contexts/AuthContext';
-import { ChangeRouteButton, Container, SubmitButton,LoginBox, Title ,CustomLink, LoginError} from './styles';
+import {
+  ChangeRouteButton, Container, SubmitButton, LoginBox, Title, CustomLink, LoginError,
+} from './styles';
 
 export default function LoginPage() {
   const navigate = useNavigate();
   const [hasLoginFailed, setHasLoginFailed] = useState(false);
   const { login } = useAuth();
-  async function onSubmit(values, {setSubmitting}) {
+  async function onSubmit(values, { setSubmitting }) {
     try {
       await login(values.email, values.password);
       navigate('/');
@@ -44,24 +46,24 @@ export default function LoginPage() {
               {hasLoginFailed && (
                 <LoginError>
                   Failed to sign in
-                </LoginError>)
-              }
-              <Input 
-                handleChange={handleChange} 
+                </LoginError>
+              )}
+              <Input
+                handleChange={handleChange}
                 handleBlur={handleBlur}
-                value={values.email} 
-                error={errors.email}  
-                touched={touched.email} 
-                type="email" 
+                value={values.email}
+                error={errors.email}
+                touched={touched.email}
+                type="email"
                 name="email"
               />
               <Input
-                handleChange={handleChange} 
-                handleBlur={handleBlur} 
-                value={values.password} 
-                error={errors.password}  
-                touched={touched.password}  
-                type="password" 
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                value={values.password}
+                error={errors.password}
+                touched={touched.password}
+                type="password"
                 name="password"
               />
               <SubmitButton type="submit" disabled={isSubmitting}>
@@ -71,7 +73,7 @@ export default function LoginPage() {
           )}
         </Formik>
         <ChangeRouteButton type="button">
-            Need an account?
+          Need an account?
           <CustomLink to="/signup">
             Sign up
           </CustomLink>

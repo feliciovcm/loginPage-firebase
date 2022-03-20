@@ -1,43 +1,38 @@
 /* eslint-disable react/prop-types */
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { createContext, useContext, useEffect, useState } from 'react';
+import React, {
+  createContext, useCallback, useContext, useEffect, useMemo, useState,
+} from 'react';
 import { auth } from '../config/firebase';
 
 const AuthContext = createContext();
 
-export function AuthProvider({children}) {
+export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [currentUser, setCurrentUser] = useState(null);
 
-  function signUp(email,password) {
-    return createUserWithEmailAndPassword(auth, email, password);
-  }
-  
-  function login(email,password) {
-    return signInWithEmailAndPassword(auth, email, password);
-  }
+  const signUp = useCallback((email, password) => createUserWithEmailAndPassword(auth, email, password), []);
 
-  function logout(){
-    return signOut(auth);
-  }
+  const login = useCallback((email, password) => signInWithEmailAndPassword(auth, email, password), []);
+
+  const logout = useCallback(() => signOut(auth), []);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       setLoading(false);
       setCurrentUser(user);
     });
 
     return unsubscribe;
-  }, []); 
+  }, []);
 
-  const value= {
+  const value = useMemo(() => ({
     currentUser,
     login,
     logout,
-    signUp
-  };
+    signUp,
+  }), [currentUser, login, logout, signUp]);
 
-  
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}

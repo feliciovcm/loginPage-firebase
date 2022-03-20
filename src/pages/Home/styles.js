@@ -18,7 +18,7 @@ export const Box = styled.div`
 export const Title = styled.p`
   text-align: center;
   margin-bottom: 3rem;
-  
+
   font-size: 2rem;
   font-weight: 700;
   color: var(--text);
@@ -43,6 +43,3 @@ export const CustomButton = styled.button`
     opacity: 0.7;
   }
 `;
-
-
-

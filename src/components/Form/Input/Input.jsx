@@ -1,9 +1,14 @@
 /* eslint-disable react/prop-types */
 
-import { Container, ErrorMessage, InputField, Title } from './styles';
+import React from 'react';
+import {
+  Container, ErrorMessage, InputField, Title,
+} from './styles';
 
-export function Input (props) {
-  const {handleChange, handleBlur, value,error, touched, type, name, label} = props;
+export function Input(props) {
+  const {
+    handleChange, handleBlur, value, error, touched, type, name, label,
+  } = props;
 
   return (
     <Container>
@@ -23,4 +28,3 @@ export function Input (props) {
     </Container>
   );
 }
-
