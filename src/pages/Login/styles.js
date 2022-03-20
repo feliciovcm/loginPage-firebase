@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const LoginBox = styled.div`
   padding: 2rem 1.5rem;
-  border: 1px solid var(--text);
+  border: 1px solid var(--gray-700);
   border-radius: 0.5rem;
   min-width: 448px;
 `;
@@ -34,7 +34,7 @@ export const SubmitButton = styled.button`
   font-size: 1.25rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: var(--gray-850);
+  color: var(--shape);
 
   background: var(--green);
 

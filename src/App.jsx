@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import { AuthProvider, RequireAuth } from './contexts/AuthContext';
+import { ProtectedRoute } from './components/ProtectedRoute';
+import { AuthProvider } from './contexts/AuthContext';
 import { GlobalStyle } from './globals.styles';
 import HomePage from './pages/Home';
 import LoginPage from './pages/Login';
@@ -10,11 +11,9 @@ function App() {
     
     <AuthProvider>
       <Routes>
-        <Route path="/" element={
-          <RequireAuth>
-            <HomePage />
-          </RequireAuth>
-        } />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<HomePage />} />
+        </Route>
         <Route path="signup" element={<SignUpPage />} />
         <Route path="login" element={<LoginPage />} />
       </Routes>

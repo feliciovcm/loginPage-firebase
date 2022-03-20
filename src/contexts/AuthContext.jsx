@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
 import { auth } from '../config/firebase';
 
 const AuthContext = createContext();
@@ -48,15 +47,4 @@ export function AuthProvider({children}) {
 
 export function useAuth() {
   return useContext(AuthContext);
-}
-
-export function RequireAuth({ children }) {
-  const { currentUser } = useAuth();
-  let location = useLocation();
-
-  if (!currentUser) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
-
-  return children;
 }

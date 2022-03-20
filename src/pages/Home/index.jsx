@@ -8,7 +8,7 @@ export default function HomePage () {
     <Container>
       <Box>
         <Title>
-          Muito obrigado a presença de todos!
+          Obrigado a todos pela presença!
         </Title>
         <CustomButton type="button" onClick={logout}>
           CLICK TO LOGOUT
