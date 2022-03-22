@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const SignupBox = styled.div`
   padding: 2rem 1.5rem;
-  border: 1px solid var(--gray-700);
+  border: 1px solid var(--gray);
   border-radius: 0.5rem;
   min-width: 448px;
 `;
