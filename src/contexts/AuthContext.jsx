@@ -9,7 +9,7 @@ const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(auth.currentUser);
 
   const signUp = useCallback((email, password) => createUserWithEmailAndPassword(auth, email, password), []);
 
@@ -19,8 +19,8 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      setLoading(false);
       setCurrentUser(user);
+      setLoading(false);
     });
 
     return unsubscribe;
